@@ -1,0 +1,95 @@
+<div class="jumbotron">
+  <h1 class="display-3 ok" [style.color]="(applyDanger==true) ? 'orange' : 'lightgreen'">{{statusMessage}}
+    <span *ngIf="applyDanger == false" style="color:lightgreen;" class="glyphicon glyphicon-ok"></span>
+    <span *ngIf="applyDanger == true" style="color:#e33d25;" class="glyphicon glyphicon-remove"></span>
+  </h1>
+
+</div>
+
+<div class="col-sm-6 col-md-4">
+  <div [style.background]="(motionRed==true) ? '#e33d25' : '' " class="thumbnail">
+
+    <div class="caption">
+      <div class="row margin-padd-null">
+        <p class="dis-inline">
+          <strong>Motion Sensor</strong>
+        </p>
+        <p class="pull-right greenpad white">Unit</p>
+      </div>
+
+      <hr class=" margin-padd-null">
+      <h3 class="text-center">{{motionValue}}
+        <small>unit</small>
+      </h3>
+    </div>
+  </div>
+</div>
+<div class="col-sm-6 col-md-4">
+  <div [style.background]="(gasRed==true) ? '#e33d25' : '' " class="thumbnail">
+
+    <div  class="caption" >
+      <div class="row margin-padd-null">
+        <p class="dis-inline">
+          <strong>Gas Sensor</strong>
+        </p>
+        <p class="pull-right greenpad white">Unit</p>
+      </div>
+
+      <hr class=" margin-padd-null">
+      <h3 class="text-center">{{gasValue}}
+        <small>unit</small>
+      </h3>
+    </div>
+  </div>
+</div>
+<div class="col-sm-6 col-md-4">
+  <div [style.background]="(distanceRed==true) ? '#e33d25' : '' " class="thumbnail">
+
+    <div  class="caption">
+      <div class="row margin-padd-null">
+        <p class="dis-inline">
+          <strong>Distance Sensor</strong>
+        </p>
+        <p class="pull-right greenpad white">cm</p>
+      </div>
+
+      <hr class=" margin-padd-null">
+      <h3 class="text-center">{{distanceValue}}
+        <small>cm</small>
+      </h3>
+    </div>
+  </div>
+</div>
+<hr>
+
+<div class="col-sm-10">
+    
+      <h4 >Live Data Chart</h4> 
+      <p><strong><span class="highlight">{{SDay}}</span>/ {{SMon}}/ {{SYr}}--- {{SHr}}: {{SMin}}:<span class="highlight">{{SSec}}</span></strong></p>
+    
+<chart #chartVar [options]="options" type="StockChart"  (load)="loadChart($event.context)" >
+</chart>
+</div>
+
+
+
+<!-- this is floating button -->
+
+
+  <div id="container-floating">
+
+  <div class="nd5 nds" data-toggle="tooltip" data-placement="left" data-original-title="Simone"></div>
+  <div class="nd4 nds" data-toggle="tooltip" data-placement="left" data-original-title="contract@gmail.com"><img class="reminder">
+    <p class="letter">C</p>
+  </div>
+  <div class="nd3 nds" data-toggle="tooltip" data-placement="left" data-original-title="Reminder"><img class="reminder" src="//ssl.gstatic.com/bt/C3341AA7A1A076756462EE2E5CD71C11/1x/ic_reminders_speeddial_white_24dp.png" /></div>
+  <div class="nd1 nds" data-toggle="tooltip" data-placement="left" data-original-title="Edoardo@live.it"><img class="reminder">
+    <p class="letter">E</p>
+  </div>
+
+  <div id="floating-button" data-toggle="tooltip" data-placement="left" data-original-title="Create" onclick="newmail()">
+    <p class="plus"><img src="assets/alarm.jpg" height="50" width="50"></p>
+    <img class="edit" src="https://ssl.gstatic.com/bt/C3341AA7A1A076756462EE2E5CD71C11/1x/bt_compose2_1x.png">
+  </div>
+
+</div>

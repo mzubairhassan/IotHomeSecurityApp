@@ -1,0 +1,10 @@
+.contain{
+    margin: 10px 250px 0px;
+}
+
+
+@media only screen and (max-width: 770px) {
+    .contain{
+        margin: auto;
+    }
+}

@@ -1,0 +1,64 @@
+
+<!-- <h3>Full Data logging</h3>
+<hr>
+<table class="table table-striped table-hover ">
+  <thead>
+    <tr>
+      
+      <th>Time</th>
+      <th>Gas Values</th>
+      <th>Distance Values</th>
+      <th>Motion Values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let value of sensorValues">
+      
+      <td>{{value.time}}</td>
+      <td>{{value.gas}}</td>
+      <td>{{value.distance}}</td>
+      <td>{{value.motion}}</td>
+    </tr>
+    
+  </tbody>
+</table>  -->
+
+<div class="search-results"
+     data-infinite-scroll
+     debounce
+     [infiniteScrollDistance]="scrollDistance"
+     [infiniteScrollUpDistance]="scrollUpDistance"
+     [infiniteScrollThrottle]="throttle"
+     (scrolled)="onScrollDown()"
+     (scrolledUp)="onUp()">
+  
+
+     <h3>Full Data logging</h3>
+    <hr>
+    <table class="table table-striped table-hover ">
+      <thead>
+        <tr>
+          
+          <th>Time</th>
+          <th>Gas Values</th>
+          <th>Distance Values</th>
+          <th>Motion Values</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let arr of array">
+          
+          <td>{{arr.date}}</td>
+          <td>{{arr.gas}}</td>
+          <td>{{arr.distance}}</td>
+          <td *ngIf="arr.motion == 'HIGH'" style="color: red;">{{arr.motion}}</td>
+        </tr>
+        
+      </tbody>
+      <tfoot>
+        
+      </tfoot>
+    </table>
+    
+    <a  class="btn btn-success loadmore" (click)="onScrollDown()">Load More</a>
+</div>

@@ -1,0 +1,90 @@
+<form class="form-horizontal" [formGroup]="userForm" novalidate (ngSubmit)="onSubmit()" novalidate>
+  <fieldset>
+    <legend>Threshold Values</legend>
+    <div class="form-group">
+      <label for="gasThresholdd" class="col-lg-2 control-label">Gas Threshold &nbsp;&nbsp; <span style="text-decoration: underline; "> Unit</span></label>
+      <div class="col-lg-10" [ngClass]="{'has-danger': userForm.controls.gasThreshold.invalid
+           && userForm.controls.gasThreshold.dirty, 'has-success': userForm.controls.gasThreshold.valid 
+           && userForm.controls.gasThreshold.dirty }" >
+        <input class="form-control" id="gasThresholdd"  placeholder="Gas Threshold" type="text" formControlName="gasThreshold">
+
+        <div *ngIf="userForm.controls['gasThreshold'].hasError('required') && userForm.controls.gasThreshold.dirty " class="alert alert-danger">
+          Please Enter value
+      
+        </div>
+        <div *ngIf="userForm.controls['gasThreshold'].hasError('pattern')" class="alert alert-danger">
+          value is 3 digit number e.g 656
+      
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="motionThresholdd" class="col-lg-2 control-label">Motion Threshold &nbsp;&nbsp;<span style="text-decoration: underline; "> Unit</span></label>
+      <div class="col-lg-10" [ngClass]="{'has-danger': userForm.controls.motionThreshold.invalid
+      && userForm.controls.motionThreshold.dirty, 'has-success': userForm.controls.motionThreshold.valid 
+      && userForm.controls.motionThreshold.dirty }" >
+        
+        <select class="form-control" placeholder="Motion Threshold" id="motionThresholdd" formControlName="motionThreshold">
+          
+          <option>LOW</option>
+        </select>
+        <div *ngIf="userForm.controls['motionThreshold'].hasError('required') && userForm.controls.motionThreshold.dirty" class="alert alert-danger">
+          Please Select motion unit
+      
+        </div>
+       
+        
+
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="distanceThresholdd" class="col-lg-2 control-label">Distance Threshold&nbsp;&nbsp; <span style="text-decoration: underline; ">cm</span></label>
+      <div class="col-lg-10" [ngClass]="{'has-danger': userForm.controls.distanceThreshold.invalid
+      && userForm.controls.distanceThreshold.dirty, 'has-success': userForm.controls.distanceThreshold.valid 
+      && userForm.controls.distanceThreshold.dirty }" >
+        <input class="form-control" id="distanceThresholdd" placeholder="Distance Threshold" type="text" formControlName="distanceThreshold">
+
+        <div *ngIf="userForm.controls['distanceThreshold'].hasError('required') && userForm.controls.distanceThreshold.dirty" class="alert alert-danger">
+          Please Enter value
+      
+        </div>
+        <div *ngIf="userForm.controls['distanceThreshold'].hasError('pattern')" class="alert alert-danger">
+          value is 2 digit number in centimeters (cm)
+      
+        </div>
+        
+
+      </div>
+    </div>
+    
+    
+    <div class="form-group">
+      <label class="col-lg-2 control-label">Alarm Status</label>
+      <div class="col-lg-10">
+        <div class="radio">
+          <label>
+            <input  id="ringRadio" value="true" checked="" type="radio" formControlName="alarmRadio">
+            Ring
+          </label>
+        </div>
+        <div class="radio">
+          <label>
+            <input  id="disableRadio" value="false" type="radio" formControlName="alarmRadio">
+            Disable
+          </label>
+        </div>
+        <div *ngIf="userForm.controls['alarmRadio'].hasError('required') && userForm.controls.alarmRadio.dirty " class="alert alert-danger">
+            Please select one of above
+        
+          </div>
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <div class="col-lg-10 col-lg-offset-2">
+        
+        <button type="submit" [disabled]="!userForm.valid" class="btn btn-primary">Submit</button>
+      </div>
+    </div>
+  </fieldset>
+</form>
